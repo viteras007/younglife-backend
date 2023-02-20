@@ -1,4 +1,10 @@
-import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
+import {
+  IsEmail,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  MinLength,
+} from 'class-validator';
 
 export class SignUpDto {
   @IsNotEmpty()
@@ -13,4 +19,20 @@ export class SignUpDto {
   @IsString()
   @MinLength(6)
   readonly password: string;
+
+  @IsNotEmpty()
+  @IsNumber()
+  readonly weight: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  readonly height: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  readonly qtmeals: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  readonly goal: number; // 0 - lost weight, 1 - maintain weight, 2 - gain weight
 }
